@@ -1,12 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-var data = [
-    {id:1, author:"Joey Hicklin", text: "Wonderfully well worded things..."},
-    {id:2, author:"Bruce Elgort", text: "*Other* wonderfully well worded things..."},
-    {id:3, author:"Belal Sejouk", text: "*Even more* wonderfully well worded things..."}
-];
-
 var Comment = React.createClass({
     rawMarkup: function(){
         var md = new Remarkable();
@@ -14,7 +8,6 @@ var Comment = React.createClass({
         return { __html: rawMarkup };
     },
     render: function(){
-        // var md = new Remarkable();
         return(
             <div className="comment">
                 <h2 className="commentAuthor">
@@ -86,6 +79,6 @@ var CommentBox = React.createClass({
 });
 
 ReactDOM.render(
-    <CommentBox url="./src/comments" />,
+    <CommentBox url="/comments" pollInterval={2000} />,
     document.getElementById('testBox')
 );
